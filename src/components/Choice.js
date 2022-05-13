@@ -4,6 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 import './Choice.css'
 function Choice() {
+    const callBackend = async (e) => {
+        e.preventDefault();
+        const res = await fetch('/interpret', {
+            method:"GET",
+        });
+    }
     let history = useNavigate();
     return (
         <>
@@ -27,7 +33,7 @@ function Choice() {
                         doloribus? */}
                     </p>
                 </div>
-                <div className='choice-card'>
+                <div className='choice-card'onClick={callBackend}>
                     <i class="zmdi zmdi-account-box-o secondary-text-icon zmdi-hc-3x"></i>
                     <h2>Interpreter<span class="secondary-text dot">.</span></h2>
                     <p className="home-p">
